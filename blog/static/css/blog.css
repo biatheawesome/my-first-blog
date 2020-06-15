@@ -1,6 +1,6 @@
-h1 a, h2 a {
-    color: #C25100;
-    font-family: 'Lobster';
+/*h1 a, h2 a {
+    color: #91939dff;
+    font-family: 'MuseoModerno', cursive;
     }
 
 body {
@@ -8,37 +8,104 @@ body {
 }
 
 .page-header {
-    background-color: #C25100;
+    background-color: #91939dff;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
     }
-    .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
-    }
-    .content {
+
+.top-right input[type=text] {
+        float: right;
+        padding: 6px;
+        border: none;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+      }
+.top-right a {
+    float: right;
+}
+.content {
     margin-left: 40px;
     }
     h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
     }
-    .date {
+.date {
     color: #828282;
     }
-    .save {
+.save {
     float: right;
     }
-    .post-form textarea, .post-form input {
+.post-form textarea, .post-form input {
     width: 100%;
     }
-    .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #b2c5a2ff;
     float: right;
     font-size: 26pt;
     margin-right: 20px;
     }
-    .post {
+.title {
+    position: sticky;
+    color: #162b3fff;
+    }
+.post {
     margin-bottom: 70px;
     }
-    .post h2 a, .post h2 a:visited {
+.text {
+    font-family: 'Bellota', cursive;
+    }
+.post h2 a, .post h2 a:visited {
+
+    }*/
+
+.page-header{
+    background-color: #f19999;
+    margin-top: 0px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 45px 45px 45px 45px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active, .page-header a {
+    color: #0E131F;
+    font-size: 40pt;
+    text-decoration: none;
+    }
+
+.page-header button{
+    transition-duration: 0.4s;
+    background-color: #ffc5c5;
+    font-size: 20px;
+    padding: 15px;
+    float: right;
+    top: -100px;
+    border-radius: 12px;
+    border: transparent;
+}
+
+.page-header button:hover{
+    background-color: transparent;
+    border: 1px solid #0E131F;
+    color: #0E131F;
+}
+
+.page-header input {
+    position: relative;
+    top: -75px;
+    float: right;
+    clear: right;
+    padding: 15px;
+    padding-bottom: 5px;
+    font-size: 22px;
+    border: thin lightslategray;
+}
+
+.title, .title h2, .title h2 a, .title h2 a:visited, .title h2 a:active {
+    font-family: 'Open Sans', sans-serif;
+    color: #0E131F;
+}
+
+.post {
+    background-color: wheat;
+    font-family: 'Raleway', sans-serif;
+}

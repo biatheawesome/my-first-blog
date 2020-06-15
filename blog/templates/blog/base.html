@@ -1,20 +1,34 @@
 {% load static %}
 <html>
     <head>
-        <title>Django Girls blog</title>
+        <title>Bianca's Bridging Coursework</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'
->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
+
+
+
     <body>
+
         <div class="page-header">
+            <h1><a href="/">Andreea-Bianca Fraunhoffer</a></h1>
             {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'post_new' %}" class="top-menu"><button type="button"<span class="glyphicon glyphicon-plus"></span> Add post</button></a>
             {% endif %}
-            <h1><a href="/">Django Girls Blog</a></h1>
+            <form action="{% url 'post_search' %}" method="get">
+                {%csrf_token%} 
+                <input type="text" id="search_query" placeholder="Search..">
+                <input type="submit" value="Search!">
+            </form>
         </div>
+
+        <!--<div class="top-right">
+            
+        </div> -->
+
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
@@ -22,6 +36,7 @@
                 {% endblock %}
                 </div>
             </div>
-        </div>      
+        </div>  
+
     </body>
 </html>
