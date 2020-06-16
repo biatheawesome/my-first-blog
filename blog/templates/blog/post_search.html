@@ -1,9 +1,9 @@
-{% extends "blog/base.html"}
+{% extends "blog/base.html"%}
 
 {%block content%}
     {%if "query" in request.GET %}
         <h1>Posts containing "{{query}}":</h1>
-        {%for post in posts%}
+        {%for post in results%}
             <div class="post">
             <div class="title">
                 <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
@@ -17,5 +17,6 @@
            </div>
         </div>
         <br>
-    {% endfor %}
-    {%endblock%}
+        {% endfor %}
+    {%endif%}
+{%endblock%}

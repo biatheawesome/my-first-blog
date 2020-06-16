@@ -41,7 +41,24 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def post_search(request):
-    form=SearchForm()
+    if request.method=='GET':
+        form=SearchForm(request.GET)
+        #if form.is_valid():
+        query=request.GET.get('q',None)
+        if query:
+            results= Post.objects.filter(Q(title__icontains=query)| Q(text__icontains=query))
+            return render(request, 'blog/post_search.html', {'results':results})
+    else:
+        print(form.errors)
+        return render(request, 'blog/search_error.html', {})
+
+
+
+
+
+
+
+"""     form=SearchForm()
     if request.method=='GET':
         form=SearchForm(request.GET)
         if form.is_valid():
@@ -61,4 +78,4 @@ def get_blog_queryset(query=None):
         posts=Post.objects.filter(Q(title__icontains=q)|Q(text__icontains=q)).distinct()
         for post in posts:
             queryset.append(post)
-    return queryset
+    return queryset """

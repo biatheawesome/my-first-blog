@@ -109,3 +109,8 @@ body {
     background-color: wheat;
     font-family: 'Raleway', sans-serif;
 }
+
+.search-button {
+    position: relative;
+    top: -52px;
+}
