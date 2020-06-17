@@ -15,9 +15,10 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES or None)
         if form.is_valid():
             post = form.save(commit=False)
+            post.image=request.FILES['image']
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
@@ -29,9 +30,10 @@ def post_new(request):
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES or None)
         if form.is_valid():
             post = form.save(commit=False)
+            post.image=request.FILES['image']
             post.author = request.user
             post.published_date = timezone.now()
             post.save()

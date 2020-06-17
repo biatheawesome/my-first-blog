@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{%load thumbnail%}
 
 {% block content %}
     <div class="post">
@@ -12,6 +13,9 @@ an></a>
                 {{ post.published_date }}
             </div>
         {% endif %}
+        {% thumbnail post.image "100x100" crop="center" as im %}
+            <img src="{{ post.image.url }}">
+        {% endthumbnail %}
         <br>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>

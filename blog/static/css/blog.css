@@ -114,3 +114,8 @@ body {
     position: relative;
     top: -51px;
 }
+
+.thumbnailimg {
+    position: relative;
+    right: -420px;
+}
