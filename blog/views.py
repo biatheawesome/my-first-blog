@@ -43,7 +43,6 @@ def post_edit(request, pk):
 def post_search(request):
     if request.method=='GET':
         form=SearchForm(request.GET)
-        #if form.is_valid():
         query=request.GET.get('q',None)
         if query:
             results= Post.objects.filter(Q(title__icontains=query)| Q(text__icontains=query))
@@ -51,31 +50,3 @@ def post_search(request):
     else:
         print(form.errors)
         return render(request, 'blog/search_error.html', {})
-
-
-
-
-
-
-
-"""     form=SearchForm()
-    if request.method=='GET':
-        form=SearchForm(request.GET)
-        if form.is_valid():
-            query=request.GET.get('q',None)
-            if query:
-                posts= Post.objects.filter(title__icontains=query)
-            return render(request, 'blog/post_search.html', {'posts':posts, 'form':form})
-        else:
-            print(form.errors)
-            return render(request, 'blog/search_error.html', {})
-
-
-def get_blog_queryset(query=None):
-    queryset=[]
-    queries=query.split(" ")
-    for q in queries:
-        posts=Post.objects.filter(Q(title__icontains=q)|Q(text__icontains=q)).distinct()
-        for post in posts:
-            queryset.append(post)
-    return queryset """
