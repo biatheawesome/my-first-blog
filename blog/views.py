@@ -52,3 +52,9 @@ def post_search(request):
     else:
         print(form.errors)
         return render(request, 'blog/search_error.html', {})
+
+def post_delete(request, pk):
+    post=get_object_or_404(Post, pk=pk)
+    if request.method=='POST':
+        post.delete()
+    return render(request, 'blog/post_list.html', {'post':post})
