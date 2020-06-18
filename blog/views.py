@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 from .models import Post, Comment
 from .forms import PostForm, SearchForm, CommentForm
 
@@ -88,3 +89,17 @@ def comment_remove(request,pk):
     comment=get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail',pk=post_pk)
+
+def login_view(request):
+    username=request.POST['username']
+    password=request.POST['password']
+    user=authenticate(request,username=username, password=password)
+    if user is not None:
+        login(request,user)
+        return redirect('post_list.html')
+    else:
+        return render(request, 'blog/404.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('post_list.html')

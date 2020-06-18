@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.admin',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.contenttypes',

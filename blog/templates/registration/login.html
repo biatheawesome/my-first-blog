@@ -1,4 +1,4 @@
-{%extends blog/base.html%}
+{%extends 'blog/base.html'%}
 
 {%block content%}
 
@@ -6,7 +6,7 @@
         <p>Your username and password didn't match. Please try again.</p>
     {%endif%}
 
-    <form method="POST" action="{%url 'django.contrib.auth.views.login'%}">{%csrf_token%}
+    <form method="POST" action="{%url 'login'%}">{%csrf_token%}
         
         <table>
             <tr>
