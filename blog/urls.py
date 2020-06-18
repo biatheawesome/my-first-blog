@@ -9,4 +9,7 @@ urlpatterns = [
     path('search/', views.post_search, name='post_search'),
     path('post/<int:pk>/delete/', views.post_delete, name='post_delete'),
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
+    path('404_Page_Not_Found/', views.handler404, name='handler404'),
+    path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
+    path('comment/<int:pk>/remove/',views.comment_remove, name='comment_remove'),
 ]

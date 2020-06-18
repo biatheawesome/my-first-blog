@@ -2,7 +2,8 @@ from django.utils import timezone
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
-from .models import Post
+from django.contrib.auth.decorators import login_required
+from .models import Post, Comment
 from .forms import PostForm, SearchForm, CommentForm
 
 def post_list(request):
@@ -50,10 +51,10 @@ def post_search(request):
             results= Post.objects.filter(Q(title__icontains=query)| Q(text__icontains=query))
             return render(request, 'blog/post_search.html', {'results':results})
         else:
-            return render(request,'blog/search_error.html',{})
+            return render(request,'blog/404.html',{})
     else:
         print(form.errors)
-        return render(request, 'blog/search_error.html', {})
+        return render(request, 'blog/404.html', {})
 
 def post_delete(request, pk):
     post=get_object_or_404(Post, pk=pk)
@@ -72,3 +73,18 @@ def add_comment_to_post(request,pk):
     else:
         form=CommentForm()
         return render(request,'blog/add_comment_to_post.html',{'form':form})
+
+def handler404(request):
+    return render(request, '404.html', status=404)
+
+@login_required
+def comment_approve(request,pk):
+    comment=get_object_or_404(Comment,pk=pk)
+    comment.approve()
+    return redirect('post_detail', pk=comment.post.pk)
+
+@login_required
+def comment_remove(request,pk):
+    comment=get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return redirect('post_detail',pk=post_pk)

@@ -69,20 +69,25 @@
 .page-header{
     background-color: #ffbcbc;
     margin-top: 0px;
-    font-family: 'Raleway Dots', cursive;
     font-weight: 600;
     padding: 35px;
-    
-}
-
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active, .page-header a {
-    font-size: 70px;
-    color: black;
-
 }
 
 .page-header a:hover{
     text-decoration: none;
+}
+
+.blog-title h1, .blog-title h1 a, .blog-title h1 a:visited, .blog-title h1 a:active{
+    font-family: 'Raleway Dots', cursive;
+    font-size: 70px;
+    color: black;
+}
+
+.login-menu {
+    float: right;
+    font-family: 'Open Sans', sans-serif;
+    font-size: larger;
+    top: 35px;
 }
 
 .navbar{
@@ -90,8 +95,6 @@
     margin-top: 0px;
     top:-35px;
     height: 50px;
-    
-
 }
 
 .new-post{
@@ -196,6 +199,11 @@
     font-family: 'Raleway', sans-serif;
     font-size: larger;
 
+}
+
+.comment-count a{
+    color: #0E131F;
+    font-size: smaller;
 }
 
 /*end post_list*/
