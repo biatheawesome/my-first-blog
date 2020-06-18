@@ -55,6 +55,5 @@ def post_search(request):
 
 def post_delete(request, pk):
     post=get_object_or_404(Post, pk=pk)
-    if request.method=='POST':
-        post.delete()
-    return render(request, 'blog/post_list.html', {'post':post})
+    post.delete()
+    return redirect('post_list')
