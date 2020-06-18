@@ -4,21 +4,27 @@
 {%block content%}
 {% for post in posts %}
     <div class="post">
+
         <div class="title">
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <div class="thumbnailimg">
-            {% thumbnail post.image "100x100" crop="center" as im %}
-                <img src="{{ post.image.url }}">
-            {% endthumbnail %}
-            </div>
         </div>
+
         <div class="date">
             {{ post.published_date }}
        </div>
+
+       <div class="thumbnailimg">
+        {% thumbnail post.image "100x100" crop="center" as im %}
+            <img src="{{ post.image.url }}">
+        {% endthumbnail %}
+        </div>
+
        <br>
+
        <div class="text"> 
         {{ post.text|linebreaksbr }}
        </div>
+       
     </div>
     <br>
 {% endfor %}

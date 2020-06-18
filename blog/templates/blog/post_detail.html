@@ -2,21 +2,39 @@
 {%load thumbnail%}
 
 {% block content %}
+
     <div class="post">
         {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a class="btn btn-default" href="{% url 'post_delete' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+
+            <div class="edit-button">
+                <a class="btn btn-link" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            </div>
+
+            <div class="delete-button">
+                <a class="btn btn-link" href="{% url 'post_delete' pk=post.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+            </div>
+
         {% endif %}
         <h2>{{ post.title }}</h2>
         {% if post.published_date %}
+
             <div class="date">
                 {{ post.published_date }}
             </div>
+
         {% endif %}
-        {% thumbnail post.image "100x100" crop="center" as im %}
-            <img src="{{ post.image.url }}">
-        {% endthumbnail %}
+
+        <div class="big-image">
+            {% thumbnail post.image "100x100" crop="center" as im %}
+                <img src="{{ post.image.url }}">
+            {% endthumbnail %}
+        </div>
+
         <br>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <div class="big-text">
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+
     </div>
+
 {% endblock %}

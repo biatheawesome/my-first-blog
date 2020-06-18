@@ -49,6 +49,8 @@ def post_search(request):
         if query:
             results= Post.objects.filter(Q(title__icontains=query)| Q(text__icontains=query))
             return render(request, 'blog/post_search.html', {'results':results})
+        else:
+            return render(request,'blog/search_error.html',{})
     else:
         print(form.errors)
         return render(request, 'blog/search_error.html', {})

@@ -1,65 +1,4 @@
-/*h1 a, h2 a {
-    color: #91939dff;
-    font-family: 'MuseoModerno', cursive;
-    }
-
-body {
-    padding-left: 15px;
-}
-
-.page-header {
-    background-color: #91939dff;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
-    }
-
-.top-right input[type=text] {
-        float: right;
-        padding: 6px;
-        border: none;
-        margin-top: 8px;
-        margin-right: 16px;
-        font-size: 17px;
-      }
-.top-right a {
-    float: right;
-}
-.content {
-    margin-left: 40px;
-    }
-    h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
-    }
-.date {
-    color: #828282;
-    }
-.save {
-    float: right;
-    }
-.post-form textarea, .post-form input {
-    width: 100%;
-    }
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #b2c5a2ff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
-    }
-.title {
-    position: sticky;
-    color: #162b3fff;
-    }
-.post {
-    margin-bottom: 70px;
-    }
-.text {
-    font-family: 'Bellota', cursive;
-    }
-.post h2 a, .post h2 a:visited {
-
-    }*/
-
-.page-header{
+/* .page-header{
     background-color: #f19999;
     margin-top: 0px;
     font-family: 'Open Sans', sans-serif;
@@ -70,9 +9,14 @@ body {
     color: #0E131F;
     font-size: 40pt;
     text-decoration: none;
-    }
+}
 
-.page-header button{
+
+.navbar{
+
+}
+
+/* .page-header button{
     transition-duration: 0.4s;
     background-color: #ffc5c5;
     font-size: 20px;
@@ -98,7 +42,7 @@ body {
     padding-bottom: 5px;
     font-size: 22px;
     border: thin lightslategray;
-}
+} 
 
 .title, .title h2, .title h2 a, .title h2 a:visited, .title h2 a:active {
     font-family: 'Open Sans', sans-serif;
@@ -110,12 +54,174 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-.search-button {
+ .search-button {
     position: relative;
     top: -51px;
-}
+} 
 
 .thumbnailimg {
     position: relative;
-    right: -420px;
+} */
+
+/*start base.html*/
+
+
+.page-header{
+    background-color: #ffbcbc;
+    margin-top: 0px;
+    font-family: 'Raleway Dots', cursive;
+    font-weight: 600;
+    padding: 35px;
+    
 }
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active, .page-header a {
+    font-size: 70px;
+    color: black;
+
+}
+
+.page-header a:hover{
+    text-decoration: none;
+}
+
+.navbar{
+    background-color:#f19999;
+    margin-top: 0px;
+    top:-35px;
+    height: 50px;
+    
+
+}
+
+.new-post{
+    position: relative;
+    top:-5px;
+    margin-left:42px;
+}
+
+.new-post button{
+    padding: 15px;
+    background-color: transparent;
+    border: transparent;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    
+}
+
+.glyphicon.glyphicon-plus{
+    color: white;
+
+}
+
+.search-bar{
+    position: relative;
+    left:-100px;
+    float:right;
+    top:-47px;
+
+}
+
+.navbar input{
+    background-color: transparent;
+    padding: 5px;
+    padding-right: 140px;
+    border-radius: 8px;
+    border:solid 2px white ;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.search-button{
+    position: absolute;
+    float:right;
+    top:-1px;
+    right:-35px;
+
+}
+
+.search-button button{
+    background-color: transparent;
+    color: #ffffff;
+    padding: 5px;
+    border: transparent;
+}
+
+.glyphicon.glyphicon-search{
+    font-size: 24px;
+}
+
+.content-container{
+    
+
+}
+
+.row{
+
+}
+
+.col-md-8{
+
+}
+
+/*end base.html*/
+
+/*start post_list.html*/
+
+.post{
+    background-color: #ffe9e9;
+
+}
+
+.title{
+    font-family: 'Open Sans', sans-serif;
+    
+
+}
+
+.title a, .title a:visited, .title a:active {
+    color: #0E131F;
+    font-weight: 600;
+}
+
+.date{
+    font-style: italic;
+
+}
+
+.thumbnailimg{
+
+}
+
+.text{
+    font-family: 'Raleway', sans-serif;
+    font-size: larger;
+
+}
+
+/*end post_list*/
+/*start post_detail*/
+
+.edit-button{
+    float: right;
+
+}
+
+.btn.btn-link{
+    color:#f19999;
+    
+}
+
+.delete-button{
+    float: right;
+
+}
+
+.big-image{
+
+}
+
+.big-text{
+
+}
+
+
