@@ -20,9 +20,9 @@
 
             <div class="login-menu">
             {%if user.is_authenticated%}
-                <p class="top-menu">Hello, {{ user.username }}!<small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+                <p>Hello, {{ user.username }}!</p>
             {%else%}
-            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+            <a href="{% url 'login' %}" class="hello-user"><span class="glyphicon glyphicon-lock"></span></a>
             {%endif%}
             </div>
 
@@ -32,7 +32,11 @@
 
             {% if user.is_authenticated %}
             <div class="new-post">
-                <a href="{% url 'post_new' %}" class="top-menu"><button type="button"<span class="glyphicon glyphicon-plus"></span> Add post</button></a>
+                <a href="{% url 'post_new' %}"><button type="button"<span class="glyphicon glyphicon-plus"></span> Add post</button></a>
+            </div>
+
+            <div class="log-out">
+                <a href="{% url 'logout' %}"> Log out</a>
             </div>
             {% endif %}
 

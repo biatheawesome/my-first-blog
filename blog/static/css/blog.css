@@ -117,6 +117,23 @@
 
 }
 
+.log-out a, .log-out a:visited, .log-out a:active {
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    float: left;
+    top:-64px;
+    left: 200px;
+    padding: 15px;
+    background-color: transparent;
+    border: transparent;
+    font-size: 25px;
+    color: white;
+}
+
+.log-out a:hover {
+    text-decoration: none;
+}
+
 .search-bar{
     position: relative;
     left:-100px;
