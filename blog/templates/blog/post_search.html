@@ -1,6 +1,9 @@
 {% extends "blog/base.html"%}
+{%load thumbnail%}
 
 {%block content%}
+<div class="top-text"><h1>Search results for {{query}}:</h1></div>
+
 {% for post in results %}
     <div class="post">
         <div class="title">
@@ -10,6 +13,13 @@
             {{ post.published_date }}
        </div>
        <br>
+
+       <div class="thumbnailimg">
+            {% thumbnail post.image "100x100" crop="center" as im %}
+                <img src="{{ post.image.url }}">
+            {% endthumbnail %}
+        </div>
+
        <div class="text"> 
         {{ post.text|linebreaksbr }}
        </div>

@@ -50,9 +50,9 @@ def post_search(request):
         query=request.GET.get('q',None)
         if query:
             results= Post.objects.filter(Q(title__icontains=query)| Q(text__icontains=query))
-            return render(request, 'blog/post_search.html', {'results':results})
+            return render(request, 'blog/post_search.html', {'results':results, 'query':query})  
         else:
-            return render(request,'blog/404.html',{})
+            return render(request,'blog/post_search.html',{})
     else:
         print(form.errors)
         return render(request, 'blog/404.html', {})
@@ -103,4 +103,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('post_list.html')
+    return redirect('logout.html')
