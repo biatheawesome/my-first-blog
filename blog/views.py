@@ -103,4 +103,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('logout.html')
+    return redirect('post_list.html')
