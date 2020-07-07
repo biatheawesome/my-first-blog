@@ -15,7 +15,11 @@
             </div>
 
         {% endif %}
-        <h2>{{ post.title }}</h2>
+
+        <div class="big-title">
+            <h2>{{ post.title }}</h2>
+        </div>
+
         {% if post.published_date %}
 
             <div class="date">
@@ -38,7 +42,10 @@
     </div>
 
     <hr>
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+
+    <div class="add-comment">
+        <a href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+    </div>
 
     {% for comment in post.comments.all %}
 
@@ -49,14 +56,19 @@
 
             {% if not comment.approved_comment %}
 
-                <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                <a class="btn btn-link" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                <a class="btn btn-link" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
                 
             {% endif %}
-
+                <div class="comment-author">
                     <strong>{{ comment.author }}</strong>
+                </div>
+
+                <div class="comment-text">
                     <p>{{ comment.text|linebreaks }}</p>
                 </div>
+                
+            </div>
         {%endif%}
 
         {% empty %}

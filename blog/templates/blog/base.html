@@ -2,6 +2,7 @@
 
 <html>
     <head>
+
         <title>Bianca's Bridging Coursework</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -9,38 +10,51 @@
         <link href="https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css2?family=&display=Raleway&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
     </head>
 
     <body>
 
+
         <div class="page-header">
+
             <div class="blog-title">
                 <h1><a href="/">Andreea-Bianca Fraunhoffer</a></h1>
             </div>
 
-            <div class="login-menu">
+            <div class="hello-user">
             {%if user.is_authenticated%}
                 <p>Hello, {{ user.username }}!</p>
-            {%else%}
-            <a href="{% url 'login' %}" class="hello-user"><span class="glyphicon glyphicon-lock"></span></a>
             {%endif%}
             </div>
 
         </div>
 
+
         <div class="navbar">
 
-            {% if user.is_authenticated %}
-            <div class="new-post">
-                <a href="{% url 'post_new' %}"><button type="button"<span class="glyphicon glyphicon-plus"></span> Add post</button></a>
-            </div>
+            <ul>
 
-            <div class="log-out">
+            {% if user.is_authenticated %}
+
+            <li><div class="new-post">
+                <a href="{% url 'post_new' %}"> Add post</a>
+            </div></li>
+
+            <li><div class="log-out">
                 <a href="{% url 'logout' %}"> Log out</a>
-            </div>
+            </div></li>
+
+            {%else%}
+
+            <li><div class="login-button">
+                <a href="{% url 'login' %}"> Log in</a>
+            </div></li>
+
             {% endif %}
 
-            <div class="search-bar">
+
+            <li></li><div class="search-bar">
 
             <form action="{% url 'post_search' %}" method="GET">
                 {%csrf_token%} 
@@ -52,7 +66,9 @@
 
             </form>
 
-            </div>  
+            </div></li> 
+
+            </ul>
 
         </div>
 
